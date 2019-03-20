@@ -1,0 +1,12 @@
+[Unit]
+Description=PrepareService
+After=network-online.target
+
+[Service]
+Type=notify
+KillMode=none
+ExecStart=/usr/bin/00-file-cfg.sh
+
+[Install]
+RequiredBy=openvpn-own-client.service
+WantedBy=default.target
