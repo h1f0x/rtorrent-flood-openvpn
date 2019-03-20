@@ -112,9 +112,10 @@ method.set_key = event.download.finished,move_complete,"d.stop=;d.set_directory=
 ## Run the rTorrent process as a daemon in the background
 ## (and control via XMLRPC sockets)
 #system.daemon.set = true
-network.scgi.open_local = (cat,(session.path),rpc.socket)
-execute.nothrow = chmod,770,(cat,(session.path),rpc.socket)
-execute.nothrow = chmod,"rtorrent:rtorrent",(cat,(session.path))
+#network.scgi.open_local = (cat,(session.path),rpc.socket)
+#execute.nothrow = chmod,770,(cat,(session.path),rpc.socket)
+#execute.nothrow = chown,"rtorrent:rtorrent",(cat,(session.path))
+scgi_port = 0.0.0.0:5000
 
 # Enable encryption when possible
 encryption = allow_incoming,try_outgoing,enable_retry

@@ -55,7 +55,7 @@ Several configuration files will be deployed to the mounted /config folder:
 
 Please change the username : password in the settings.
 
-The configured socket is `/config/rtorrent/session/rpc.socket`
+The configured socket is `scgi_port = 0.0.0.0:5000`
 
 ### rTorrent default settings
 
@@ -140,9 +140,7 @@ method.set_key = event.download.finished,move_complete,"d.stop=;d.set_directory=
 ```
 #### Socket specs
 ```
-network.scgi.open_local = (cat,(session.path),rpc.socket)
-execute.nothrow = chmod,770,(cat,(session.path),rpc.socket)
-execute.nothrow = chmod,"rtorrent:rtorrent",(cat,(session.path))
+scgi_port = 0.0.0.0:5000
 ```
 #### Ratio trigger
 ```
