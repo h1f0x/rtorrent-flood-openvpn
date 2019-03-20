@@ -1,0 +1,20 @@
+[Unit]
+Description=OpenVPN tunnel
+After=syslog.target network-online.target prepare-config.service
+Wants=network-online.target
+
+[Service]
+Type=notify
+PrivateTmp=true
+WorkingDirectory=/config/vpn
+ExecStart=/usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
+CapabilityBoundingSet=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SYS_CHROOT CAP_DAC_OVERRIDE
+LimitNPROC=10
+DeviceAllow=/dev/null rw
+DeviceAllow=/dev/net/tun rw
+ProtectSystem=true
+ProtectHome=true
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

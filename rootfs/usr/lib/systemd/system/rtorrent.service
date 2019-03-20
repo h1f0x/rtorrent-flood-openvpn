@@ -1,0 +1,15 @@
+[Unit]
+Description=rTorrent
+After=network-online.target openvpn-own-client.service
+
+[Service]
+User=rtorrent
+Type=forking
+KillMode=none
+ExecStart=/usr/bin/screen -d -m -fa -S rtorrent /usr/bin/rtorrent -n -o import=/config/rtorrent/rtorrent.rc
+ExecStop=/usr/bin/killall -w -s 2 /usr/bin/rtorrent
+WorkingDirectory=%h
+
+[Install]
+RequiredBy=flood.service
+WantedBy=default.target

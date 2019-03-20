@@ -1,0 +1,17 @@
+[Unit]
+Description=FloodUI
+After=network-online.target openvpn-own-client.service rtorrent.service
+
+[Service]
+WorkingDirectory=/opt/flood
+ExecStart=/usr/bin/npm start
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=notell
+User=flood
+Group=flood
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
