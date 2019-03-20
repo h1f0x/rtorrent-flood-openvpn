@@ -1,4 +1,4 @@
-# Trakt.or Docker
+# rTorrent + FloodUI + OpenVPN
 Docker container for rTorrent + FloodUI with integrated OpenVPN client.
 
 It is based on the latest CentOS docker image:
