@@ -3,7 +3,6 @@ const CONFIG = {
   dbCleanInterval: 1000 * 60 * 60,
   dbPath: '/config/flood/db/',
   floodServerHost: '127.0.0.1',
-  floodServerProxy: 'http://127.0.0.1:3000',
   torrentClientPollInterval: 1000 * 2,
   floodServerPort: 3000,
   maxHistoryStates: 30,
