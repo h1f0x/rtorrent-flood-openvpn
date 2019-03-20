@@ -1,2 +1,3 @@
 {"username":"Torrent","password":"$argon2i$v=19$m=4096,t=3,p=1$jV2HZEhGdQV/MY1Bt2Tw7w$Brog3x+0I4dOdybgvhBciolI5Np1WkNEC8E9loG+tQI","socketPath":"/config/rtorrent/session/rpc.socket","isAdmin":true,"_id":"6eYz6OKZLAGu6JjU"}
 {"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
+{"username":"Torrent","password":"$argon2i$v=19$m=4096,t=3,p=1$jV2HZEhGdQV/MY1Bt2Tw7w$Brog3x+0I4dOdybgvhBciolI5Np1WkNEC8E9loG+tQI","socketPath":null,"isAdmin":true,"_id":"6eYz6OKZLAGu6JjU","port":"5000","host":"127.0.0.1"}
