@@ -11,6 +11,12 @@ The container connects at startup during the boot process to the OpenVPN service
 
 ## Install instructions
 
+### Important
+Login: Torrent:Torrent
+Connect: 127.0.0.1:5000
+
+> In case it doesn't auto connect....
+
 ### Docker volumes
 The following volumes will get mounted:
 
