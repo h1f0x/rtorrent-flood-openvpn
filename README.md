@@ -36,7 +36,7 @@ The OpenVPN service will be verified every 60s. If it's not running anymore it w
 To get the docker up and running execute fhe following command:
 
 ```
-sudo docker run -it --privileged --name rtorrent-flood-openvpn -v /path/to/config:/config -v /path/to/output:/output -d -p 8000:80 h1f0x/rtorrent-flood-openvpn
+sudo docker run -it --privileged --name rtorrent-flood-openvpn -v /path/to/config:/config -v /path/to/output:/output -d -p 8000:80 -p 8080:8080 h1f0x/rtorrent-flood-openvpn
 ```
 > If not done already, deploy or modify the OpenVPN client.conf at /path/to/config/vpn
 
@@ -46,6 +46,25 @@ docker restart rtorrent-flood-openvpn
 
 ### Verify OpenVPN status
 In "/config/my-external-ip.txt"  the current external ip address can be found. The file will be updated every 60s.
+
+### Sonarr Support
+You can use Sonarr with this client as well. Configure your Sonarr with the following params:
+
+```
+# Normal Container
+Name: rflood-openvpn
+Enable: Yes
+Host: <IP> or <HOSTNAME>
+Port: 8080
+Username & Password: empty
+
+# PGBlitz
+Name: rflood-openvpn
+Enable: Yes
+Host: rflood-openvpn
+Port: 8080
+Username & Password: empty
+```
 
 ## Configuration files
 
