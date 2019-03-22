@@ -83,7 +83,7 @@ system.umask.set = 0027
 system.cwd.set = (directory.default)
 network.http.dns_cache_timeout.set = 25
 schedule2 = monitor_diskspace, 15, 60, ((close_low_diskspace, 1000M))
-#pieces.hash.on_completion.set = no
+pieces.hash.on_completion.set = yes
 #view.sort_current = seeding, greater=d.ratio=
 #keys.layout.set = qwerty
 #network.http.capath.set = "/etc/ssl/certs"
@@ -107,7 +107,7 @@ schedule2 = watch_load, 11, 10, ((load.verbose, (cat, (cfg.watch), "load/*.torre
 schedule2 = watch_start, 10, 10, ((load.start_verbose, (cat, (cfg.watch), "start/*.torrent")))
 
 # Move on finished
-method.set_key = event.download.finished,move_complete,"d.stop=;d.set_directory=/output/complete/;execute=cp,-fr,$d.base_path=,/output/complete/;d.start="
+method.set_key = event.download.finished,move_complete,"d.stop=;execute=cp,-fr,$d.base_path=,/output/complete/;d.start=;d.hash"
 
 ## Run the rTorrent process as a daemon in the background
 ## (and control via XMLRPC sockets)
