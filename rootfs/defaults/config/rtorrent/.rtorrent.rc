@@ -107,7 +107,7 @@ schedule2 = watch_load, 11, 10, ((load.verbose, (cat, (cfg.watch), "load/*.torre
 schedule2 = watch_start, 10, 10, ((load.start_verbose, (cat, (cfg.watch), "start/*.torrent")))
 
 # Move on finished
-method.set_key = event.download.finished,move_complete,"d.stop=;d.set_directory=/output/complete/;execute=cp,-f,$d.base_path=,/output/complete/;d.start="
+method.set_key = event.download.finished,move_complete,"d.stop=;d.set_directory=/output/complete/;execute=cp,-fr,$d.base_path=,/output/complete/;d.start="
 
 ## Run the rTorrent process as a daemon in the background
 ## (and control via XMLRPC sockets)
