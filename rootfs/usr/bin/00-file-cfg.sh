@@ -22,7 +22,7 @@ mkdir -p /config/rtorrent/watch/load
 mkdir -p /config/rtorrent/watch/start
 mkdir -p /config/flood
 
-if [ ! -f /config/rtorrent.rc ]; then
+if [ ! -f /config/rtorrent/rtorrent.rc ]; then
     cp -r /defaults/config/rtorrent/.rtorrent.rc /config/rtorrent/rtorrent.rc
 fi
 
