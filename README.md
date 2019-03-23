@@ -66,6 +66,21 @@ Port: 8080
 Username & Password: empty
 ```
 
+### Tagging
+This docker container supports tagging when feeding new torrents.
+
+If a tag is set, the torrent will be copied to the following location once it's finished:
+
+```
+/output/complete/{tag}
+```
+
+If no tag is set, the default location is:
+
+```
+/output/complete/unsorted
+```
+
 ## Configuration files
 
 Several configuration files will be deployed to the mounted /config folder:
@@ -162,7 +177,11 @@ schedule2 = watch_start, 10, 10, ((load.start_verbose, (cat, (cfg.watch), "start
 ```
 #### Move on finished
 ```
-method.set_key = event.download.finished,move_complete,"d.stop=;d.set_directory=/output/complete/;execute=mv,-f,$d.base_path=,/output/complete/;d.start="
+method.insert = d.get_finished_dir,simple,\
+        "if=(d.get_custom1),\
+        (cat, /output/complete/, (d.get_custom1), /),\
+        (cat, /output/complete/unsorted/)"
+method.set_key = event.download.finished,move_complete,"d.stop=;execute=mkdir,-p,$d.get_finished_dir=;execute=cp,-fr,$d.get_base_path=,$d.get_finished_dir=;d.start=;d.hash"
 ```
 #### Socket specs
 ```
@@ -177,6 +196,7 @@ method.set = group.seeding.ratio.command, "d.close="
 print = (cat, "Logging to ", (cfg.logfile))
 log.open_file = "log", (cfg.logfile)
 log.add_output = "info", "log"
+#log.add_output = "tracker_debug", "log"
 ```
 ## Enjoy!
 
