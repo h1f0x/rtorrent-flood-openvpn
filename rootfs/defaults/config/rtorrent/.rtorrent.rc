@@ -104,7 +104,7 @@ method.insert = d.get_finished_dir,simple,\
         "if=(d.get_custom1),\
         (cat, /output/complete/, (d.get_custom1), /),\
         (cat, /output/complete/unsorted/)"
-method.set_key = event.download.finished,move_complete,"d.stop=;execute=mkdir,-p,$d.get_finished_dir=;execute=cp,-fr,$d.get_base_path=,$d.get_finished_dir=;d.start=;d.hash"
+method.set_key = event.download.finished,move_complete,"d.stop=;execute=mkdir,-p,$d.get_finished_dir=;execute=cp,-f,$d.get_base_path=,$d.get_finished_dir=;d.start=;d.hash"
 
 
 ## Run the rTorrent process as a daemon in the background
