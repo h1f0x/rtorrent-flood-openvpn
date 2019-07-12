@@ -42,8 +42,8 @@ WORKDIR /opt/flood/
 RUN npm install
 RUN npm install -g node-gyp
 RUN npm run build
-RUN useradd flood -d /home/flood -G wheel
-RUN chown -R flood:flood /opt/flood/
+# RUN useradd flood -d /home/flood -G wheel
+RUN chown -R rtorrent:rtorrent /opt/flood/
 
 # nginx
 RUN yum install -y nginx

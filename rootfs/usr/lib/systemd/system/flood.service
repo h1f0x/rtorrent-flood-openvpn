@@ -9,8 +9,8 @@ Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=notell
-User=flood
-Group=flood
+User=rtorrent
+Group=rtorrent
 Environment=NODE_ENV=production
 
 [Install]

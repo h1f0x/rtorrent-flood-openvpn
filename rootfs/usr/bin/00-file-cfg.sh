@@ -35,4 +35,4 @@ chmod 775 -R /output
 
 chown rtorrent:rtorrent -R /output
 chown rtorrent:rtorrent -R /config/rtorrent
-chown flood:flood -R /config/flood
+chown rtorrent:rtorrent -R /config/flood
